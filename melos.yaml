@@ -1,0 +1,43 @@
+name: green_pal_monorepo
+
+packages:
+  - packages/**
+  - apps/**
+
+command:
+  bootstrap:
+    usePubspecOverrides: true
+
+scripts:
+  analyze:
+    run: melos exec -- "flutter analyze"
+    description: Run `flutter analyze` in all packages
+
+  build:ui:
+    run: melos exec --scope="green_pal_ui" -- flutter build apk
+    description: Build the UI showcase app
+
+  build:tracker:
+    run: melos exec --scope="green_pal_tracker" -- flutter build apk
+    description: Build the Tracker app
+
+  format:
+    run: melos exec -- "dart format . --set-exit-if-changed"
+    description: Run `flutter format .` in all packages
+
+  outdated:
+    run: melos exec -- "flutter pub outdated"
+    description: Run `flutter pub outdated` in all packages
+
+  test:
+    # Only run the test command when the package has a test directory
+    run: melos exec --dir-exists=test -- "flutter test"
+    description: Run `flutter test` in all packages
+
+  run:ui:
+    run: melos exec --scope="green_pal_ui" -- flutter run lib/main.dart
+    description: Run the ui showcase app for local development
+
+  run:tracker:
+    run: melos exec --scope="green_pal_tracker" -- flutter run lib/main.dart
+    description: Run the tracker app for local development

@@ -1,0 +1,10 @@
+name: green_pal_monorepo
+description: Monorepo for our Green Pal apps and packages.
+
+publish_to: 'none'
+
+environment:
+  sdk: '>=3.1.2 <4.0.0'
+
+dev_dependencies:
+  melos: ^6.2.0
