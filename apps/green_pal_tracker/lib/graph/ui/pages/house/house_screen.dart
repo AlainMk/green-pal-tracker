@@ -13,6 +13,7 @@ class HouseScreen extends StatelessWidget {
         GraphHeader(
           title: "House Consumption",
           initialDate: DateTime.now(),
+          initialUnit: 0,
           onDateSelected: (d) {},
           onToggle: (i) {},
         ),

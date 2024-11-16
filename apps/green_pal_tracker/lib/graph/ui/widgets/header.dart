@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
+import 'package:green_pal_tracker/shared/utils/date_utils.dart';
 import 'package:green_pal_ui/theme/spacing.dart';
 import 'package:green_pal_ui/widgets/circle_button.dart';
 import 'package:toggle_switch/toggle_switch.dart';
@@ -9,12 +10,14 @@ class GraphHeader extends StatelessWidget {
     super.key,
     required this.title,
     required this.initialDate,
+    required this.initialUnit,
     required this.onDateSelected,
     required this.onToggle,
   });
 
   final String title;
   final DateTime initialDate;
+  final int initialUnit;
   final Function(DateTime) onDateSelected;
   final Function(int) onToggle;
 
@@ -45,13 +48,13 @@ class GraphHeader extends StatelessWidget {
               ),
               const Gap(GreenPalSpacing.small),
               Text(
-                "Today",
+                initialDate.dayOfWeekOrRelative,
                 style: Theme.of(context).textTheme.titleSmall,
               ),
               const Spacer(),
               ToggleSwitch(
                 minWidth: 60.0,
-                initialLabelIndex: 0,
+                initialLabelIndex: initialUnit,
                 cornerRadius: 20.0,
                 activeFgColor: Colors.white,
                 inactiveBgColor: Colors.grey.shade300,

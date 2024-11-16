@@ -13,6 +13,7 @@ class BatteryScreen extends StatelessWidget {
         GraphHeader(
           title: "Battery Consumption",
           initialDate: DateTime.now(),
+          initialUnit: 0,
           onDateSelected: (d) {},
           onToggle: (i) {},
         ),
