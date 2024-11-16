@@ -51,7 +51,10 @@ class SolarScreen extends StatelessWidget {
                   },
                 ),
                 const Gap(GreenPalSpacing.largeXl),
-                EnergyLineChart(items: solarState.dataList),
+                EnergyLineChart(
+                  items: solarState.dataList,
+                  lineColor: Theme.of(context).colorScheme.secondary,
+                ),
                 const Gap(GreenPalSpacing.largeXxl),
                 Container(
                   padding: const EdgeInsets.all(GreenPalSpacing.large),

@@ -4,7 +4,7 @@ import 'package:get_it/get_it.dart';
 import 'package:green_pal_tracker/graph/data/models/graph_data.dart';
 import 'package:green_pal_tracker/graph/data/repository/graph_repository.dart';
 import 'package:green_pal_tracker/graph/data/utils/graph_utils.dart';
-import 'package:green_pal_tracker/graph/ui/blocs/shared/graph_data_item.dart';
+import 'package:green_pal_tracker/graph/ui/blocs/shared/success_base_state.dart';
 
 part 'solar_event.dart';
 part 'solar_state.dart';

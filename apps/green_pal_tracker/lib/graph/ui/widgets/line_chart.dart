@@ -4,9 +4,10 @@ import 'package:green_pal_ui/theme/spacing.dart';
 import 'package:syncfusion_flutter_charts/charts.dart';
 
 class EnergyLineChart extends StatelessWidget {
-  const EnergyLineChart({super.key, required this.items});
+  const EnergyLineChart({super.key, required this.items, required this.lineColor});
 
   final List<GraphDataItem> items;
+  final Color lineColor;
 
   @override
   Widget build(BuildContext context) {
@@ -36,7 +37,7 @@ class EnergyLineChart extends StatelessWidget {
             dataSource: items,
             xValueMapper: (GraphDataItem data, _) => data.timestamp,
             yValueMapper: (GraphDataItem data, _) => data.value,
-            color: Theme.of(context).colorScheme.secondary,
+            color: lineColor,
           )
         ],
       ),
