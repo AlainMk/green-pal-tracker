@@ -18,6 +18,8 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'GreenPal App Tracker',
       theme: GreenPalTheme.light(),
+      darkTheme: GreenPalTheme.dark(),
+      themeMode: ThemeMode.system,
       home: const MainScreen(),
     );
   }

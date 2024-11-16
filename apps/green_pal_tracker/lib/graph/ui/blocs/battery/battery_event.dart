@@ -21,3 +21,13 @@ class ChangeUnit extends BatteryEvent {
   @override
   List<Object?> get props => [unit];
 }
+
+class StartPolling extends BatteryEvent {
+  @override
+  List<Object?> get props => [];
+}
+
+class StopPolling extends BatteryEvent {
+  @override
+  List<Object?> get props => [];
+}

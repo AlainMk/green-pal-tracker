@@ -21,3 +21,13 @@ class ChangeUnit extends HouseEvent {
   @override
   List<Object?> get props => [unit];
 }
+
+class StartPolling extends HouseEvent {
+  @override
+  List<Object?> get props => [];
+}
+
+class StopPolling extends HouseEvent {
+  @override
+  List<Object?> get props => [];
+}

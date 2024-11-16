@@ -1,18 +1,28 @@
 import 'package:equatable/equatable.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get_it/get_it.dart';
 import 'package:green_pal_tracker/graph/data/models/graph_data.dart';
 import 'package:green_pal_tracker/graph/data/repository/graph_repository.dart';
 import 'package:green_pal_tracker/graph/data/utils/graph_utils.dart';
-import 'package:green_pal_tracker/graph/ui/blocs/shared/success_base_state.dart';
+import 'package:green_pal_tracker/graph/ui/blocs/shared/base_graph_bloc.dart';
+import 'package:green_pal_tracker/graph/ui/blocs/shared/base_success_state.dart';
 
 part 'house_event.dart';
 part 'house_state.dart';
 
-class HouseBloc extends Bloc<HouseEvent, HouseState> {
+class HouseBloc extends PollingBloc<HouseEvent, HouseState> {
   HouseBloc() : super(const LoadingHouseState()) {
     on<GetHouseData>(_getHouseData);
     on<ChangeUnit>(_changeUnit);
+    on<StartPolling>((event, emit) => startPolling(() {
+          if (state is SuccessHouseState) {
+            if (DateUtils.isSameDay((state as SuccessHouseState).date, DateTime.now())) {
+              add(const GetHouseData());
+            }
+          }
+        }));
+    on<StopPolling>((event, emit) => stopPolling());
   }
 
   Future<void> _getHouseData(

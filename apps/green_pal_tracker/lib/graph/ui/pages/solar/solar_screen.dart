@@ -5,7 +5,7 @@ import 'package:green_pal_tracker/graph/ui/blocs/solar/solar_bloc.dart';
 import 'package:green_pal_tracker/graph/ui/widgets/error_screen.dart';
 import 'package:green_pal_tracker/graph/ui/widgets/header.dart';
 import 'package:green_pal_tracker/graph/ui/widgets/line_chart.dart';
-import 'package:green_pal_ui/theme/border_radius.dart';
+import 'package:green_pal_tracker/graph/ui/widgets/total_data_card.dart';
 import 'package:green_pal_ui/theme/spacing.dart';
 import 'package:green_pal_ui/theme/utils.dart';
 
@@ -15,7 +15,9 @@ class SolarScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) => SolarBloc()..add(const GetSolarData()),
+      create: (context) => SolarBloc()
+        ..add(const GetSolarData())
+        ..add(StartPolling()),
       child: Builder(builder: (context) {
         return BlocConsumer<SolarBloc, SolarState>(
           listener: (context, state) {
@@ -36,47 +38,33 @@ class SolarScreen extends StatelessWidget {
             }
 
             final solarState = (state as SuccessSolarState);
-            return ListView(
-              padding: const EdgeInsets.symmetric(horizontal: GreenPalSpacing.large),
-              children: [
-                GraphHeader(
-                  title: "Solar Generation",
-                  initialDate: solarState.date,
-                  initialUnit: solarState.unit.index,
-                  onDateSelected: (d) {
-                    context.read<SolarBloc>().add(GetSolarData(date: d));
-                  },
-                  onToggle: (i) {
-                    context.read<SolarBloc>().add(ChangeUnit(i));
-                  },
-                ),
-                const Gap(GreenPalSpacing.largeXl),
-                EnergyLineChart(
-                  items: solarState.dataList,
-                  lineColor: Theme.of(context).colorScheme.secondary,
-                ),
-                const Gap(GreenPalSpacing.largeXxl),
-                Container(
-                  padding: const EdgeInsets.all(GreenPalSpacing.large),
-                  decoration: BoxDecoration(
-                    color: Colors.grey.shade100,
-                    borderRadius: BorderRadius.circular(GreenPalBorderRadius.big),
+            return RefreshIndicator(
+              onRefresh: () async {
+                context.read<SolarBloc>().add(GetSolarData(date: solarState.date));
+              },
+              child: ListView(
+                padding: const EdgeInsets.symmetric(horizontal: GreenPalSpacing.large),
+                children: [
+                  GraphHeader(
+                    title: "Solar Generation",
+                    initialDate: solarState.date,
+                    initialUnit: solarState.unit.index,
+                    onDateSelected: (d) {
+                      context.read<SolarBloc>().add(GetSolarData(date: d));
+                    },
+                    onToggle: (i) {
+                      context.read<SolarBloc>().add(ChangeUnit(i));
+                    },
                   ),
-                  child: Column(
-                    children: [
-                      Text(
-                        "Total Energy Generated",
-                        style: Theme.of(context).textTheme.titleSmall,
-                      ),
-                      const Gap(GreenPalSpacing.normal),
-                      Text(
-                        solarState.totalEnergyGenerated,
-                        style: Theme.of(context).textTheme.titleLarge,
-                      ),
-                    ],
+                  const Gap(GreenPalSpacing.largeXl),
+                  EnergyLineChart(
+                    items: solarState.dataList,
+                    lineColor: Theme.of(context).colorScheme.secondary,
                   ),
-                )
-              ],
+                  const Gap(GreenPalSpacing.largeXxl),
+                  TotalDataCard(value: solarState.totalEnergyGenerated)
+                ],
+              ),
             );
           },
         );

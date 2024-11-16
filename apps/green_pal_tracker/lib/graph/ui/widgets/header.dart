@@ -57,9 +57,9 @@ class GraphHeader extends StatelessWidget {
                 initialLabelIndex: initialUnit,
                 cornerRadius: 20.0,
                 activeFgColor: Colors.white,
-                inactiveBgColor: Colors.grey.shade300,
+                inactiveBgColor: Theme.of(context).cardColor,
                 activeBgColor: [Theme.of(context).primaryColor],
-                inactiveFgColor: Colors.black,
+                inactiveFgColor: Theme.of(context).disabledColor,
                 totalSwitches: 2,
                 labels: const ['W', 'KW'],
                 onToggle: (index) {
@@ -77,7 +77,7 @@ class GraphHeader extends StatelessWidget {
                   style: Theme.of(context).textTheme.titleMedium,
                 ),
               ),
-              const Icon(Icons.info_outline, color: Colors.black),
+              const Icon(Icons.info_outline),
             ],
           )
         ],

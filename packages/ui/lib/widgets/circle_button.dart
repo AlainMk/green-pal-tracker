@@ -22,7 +22,7 @@ class GreenPalCircleButton extends StatelessWidget {
           width: 1,
         ),
       ),
-      fillColor: GreenPalColors.white,
+      fillColor: Theme.of(context).scaffoldBackgroundColor,
       child: Icon(icon),
     );
   }

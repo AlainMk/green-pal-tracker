@@ -75,4 +75,75 @@ class GreenPalFonts {
       fontSize: 12,
     ),
   );
+
+  // dark theme
+  static TextTheme darkTextTheme = TextTheme(
+    displayLarge: GoogleFonts.poppins(
+      fontWeight: FontWeight.w700,
+      color: GreenPalColors.white,
+      height: 0.5,
+    ),
+    displayMedium: GoogleFonts.poppins(
+      fontWeight: FontWeight.w700,
+      color: GreenPalColors.white,
+    ),
+    displaySmall: GoogleFonts.poppins(
+      fontWeight: FontWeight.w600,
+      color: GreenPalColors.white,
+    ),
+    headlineLarge: GoogleFonts.poppins(
+      fontWeight: FontWeight.w400,
+      color: GreenPalColors.white,
+    ),
+    headlineMedium: GoogleFonts.poppins(
+      fontWeight: FontWeight.w400,
+      color: GreenPalColors.white,
+    ),
+    headlineSmall: GoogleFonts.poppins(
+      fontWeight: FontWeight.w400,
+      color: GreenPalColors.white,
+    ),
+    titleLarge: GoogleFonts.poppins(
+      fontWeight: FontWeight.w600,
+      color: GreenPalColors.white,
+      fontSize: 20,
+    ),
+    titleMedium: GoogleFonts.poppins(
+      fontWeight: FontWeight.w600,
+      color: GreenPalColors.white,
+      fontSize: 16,
+    ),
+    titleSmall: GoogleFonts.poppins(
+      fontWeight: FontWeight.w500,
+      color: GreenPalColors.lightGray,
+      fontSize: 14,
+    ),
+    labelLarge: GoogleFonts.poppins(
+      fontWeight: FontWeight.w600,
+      color: GreenPalColors.lightGray,
+    ),
+    labelMedium: GoogleFonts.poppins(
+      fontWeight: FontWeight.w600,
+      color: GreenPalColors.lightGray,
+    ),
+    labelSmall: GoogleFonts.poppins(
+      fontWeight: FontWeight.w500,
+      color: GreenPalColors.lightText,
+    ),
+    bodyLarge: GoogleFonts.poppins(
+      color: GreenPalColors.white,
+      fontWeight: FontWeight.w400,
+      fontSize: 16,
+    ),
+    bodyMedium: GoogleFonts.poppins(
+      color: GreenPalColors.border,
+      fontWeight: FontWeight.w400,
+      fontSize: 14,
+    ),
+    bodySmall: GoogleFonts.poppins(
+      color: GreenPalColors.border,
+      fontWeight: FontWeight.w400,
+      fontSize: 12,
+    ),
+  );
 }

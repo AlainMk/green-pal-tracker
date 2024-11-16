@@ -18,8 +18,32 @@ class GreenPalTheme {
         elevation: 0,
         foregroundColor: GreenPalColors.darkerText,
       ),
+      cardColor: Colors.grey.shade200,
       scaffoldBackgroundColor: GreenPalColors.white,
       textTheme: GreenPalFonts.lightTextTheme,
+      useMaterial3: false,
+    );
+  }
+
+  /// Dark default theme color scheme
+  static ThemeData dark() {
+    return ThemeData(
+      colorScheme: const ColorScheme.dark().copyWith(
+        primary: GreenPalColors.darkPrimary,
+        secondary: GreenPalColors.darkSecondary,
+        error: GreenPalColors.red,
+        surface: GreenPalColors.darkerText,
+      ),
+      primaryColor: GreenPalColors.primary,
+      appBarTheme: const AppBarTheme(elevation: 0),
+      scaffoldBackgroundColor: GreenPalColors.darkerText,
+      cardColor: GreenPalColors.darkText,
+      textTheme: GreenPalFonts.darkTextTheme,
+      bottomNavigationBarTheme: const BottomNavigationBarThemeData(
+        backgroundColor: GreenPalColors.darkText,
+        selectedItemColor: GreenPalColors.primary,
+        unselectedItemColor: GreenPalColors.lightText,
+      ),
       useMaterial3: false,
     );
   }

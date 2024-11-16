@@ -1,18 +1,28 @@
 import 'package:equatable/equatable.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get_it/get_it.dart';
 import 'package:green_pal_tracker/graph/data/models/graph_data.dart';
 import 'package:green_pal_tracker/graph/data/repository/graph_repository.dart';
 import 'package:green_pal_tracker/graph/data/utils/graph_utils.dart';
-import 'package:green_pal_tracker/graph/ui/blocs/shared/success_base_state.dart';
+import 'package:green_pal_tracker/graph/ui/blocs/shared/base_graph_bloc.dart';
+import 'package:green_pal_tracker/graph/ui/blocs/shared/base_success_state.dart';
 
 part 'solar_event.dart';
 part 'solar_state.dart';
 
-class SolarBloc extends Bloc<SolarEvent, SolarState> {
+class SolarBloc extends PollingBloc<SolarEvent, SolarState> {
   SolarBloc() : super(const LoadingSolarState()) {
     on<GetSolarData>(_getSolarData);
     on<ChangeUnit>(_changeUnit);
+    on<StartPolling>((event, emit) => startPolling(() {
+          if (state is SuccessSolarState) {
+            if (DateUtils.isSameDay((state as SuccessSolarState).date, DateTime.now())) {
+              add(const GetSolarData());
+            }
+          }
+        }));
+    on<StopPolling>((event, emit) => stopPolling());
   }
 
   Future<void> _getSolarData(
