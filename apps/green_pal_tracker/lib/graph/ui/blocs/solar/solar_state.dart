@@ -4,14 +4,14 @@ abstract mixin class SolarState {
   const SolarState();
 }
 
-class LoadingSolarState extends Equatable with SolarState {
+final class LoadingSolarState extends Equatable with SolarState {
   const LoadingSolarState();
 
   @override
   List<Object?> get props => [];
 }
 
-class ErrorSolarState extends Equatable with SolarState {
+final class ErrorSolarState extends Equatable with SolarState {
   const ErrorSolarState({this.message = 'An error occurred'});
 
   final String message;

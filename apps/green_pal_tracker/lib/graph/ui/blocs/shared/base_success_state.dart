@@ -16,7 +16,7 @@ abstract class BaseSuccessGraphState extends Equatable {
 
   String get totalEnergyGenerated {
     final total = dataList.fold(0, (previousValue, element) => previousValue + element.value);
-    return "${total.toStringAsFixed(2)} $formatedUnit";
+    return "$total $formatedUnit";
   }
 
   @override

@@ -4,14 +4,14 @@ abstract mixin class HouseState {
   const HouseState();
 }
 
-class LoadingHouseState extends Equatable with HouseState {
+final class LoadingHouseState extends Equatable with HouseState {
   const LoadingHouseState();
 
   @override
   List<Object?> get props => [];
 }
 
-class ErrorHouseState extends Equatable with HouseState {
+final class ErrorHouseState extends Equatable with HouseState {
   const ErrorHouseState({this.message = 'An error occurred'});
 
   final String message;

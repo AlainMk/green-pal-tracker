@@ -8,8 +8,8 @@ class GreenPalColors {
   static const secondary = Color(0xFFFE6C4B);
 
   /// dark theme colors
-  static const darkPrimary = Color(0xFF3893F5);
-  static const darkSecondary = Color(0xFFFE6C4B);
+  static const darkPrimary = Color(0xFF186CC5);
+  static const darkSecondary = Color(0xFFD5482B);
 
   static const Color grey = Color(0xFF3A5160);
   static const Color darkGrey = Color(0xFF313A44);

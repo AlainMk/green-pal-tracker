@@ -4,14 +4,14 @@ abstract mixin class BatteryState {
   const BatteryState();
 }
 
-class LoadingBatteryState extends Equatable with BatteryState {
+final class LoadingBatteryState extends Equatable with BatteryState {
   const LoadingBatteryState();
 
   @override
   List<Object?> get props => [];
 }
 
-class ErrorBatteryState extends Equatable with BatteryState {
+final class ErrorBatteryState extends Equatable with BatteryState {
   const ErrorBatteryState({this.message = 'An error occurred'});
 
   final String message;
