@@ -40,7 +40,7 @@ melos run
 
 Run the tracker app:
 ```bash 
-melos run:tracker -- --dart-define=BASE_URL=YOUR_API_URL
+melos run:tracker -- --dart-define=BASE_URL=`YOUR_API_URL`
 ```
 
 Run the UI shared app:
