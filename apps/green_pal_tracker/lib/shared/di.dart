@@ -1,7 +1,7 @@
 import 'package:dio/dio.dart';
 import 'package:get_it/get_it.dart';
 import 'package:green_pal_tracker/graph/data/api/graph_api.dart';
-import 'package:green_pal_tracker/graph/data/api/graph_local_api.dart';
+import 'package:green_pal_tracker/graph/data/db/graph_local_db.dart';
 import 'package:green_pal_tracker/graph/data/repository/graph_repository.dart';
 import 'package:green_pal_tracker/shared/interceptors/default_interceptor.dart';
 import 'package:green_pal_tracker/shared/manager/cache_manager.dart';

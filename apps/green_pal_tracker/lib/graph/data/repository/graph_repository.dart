@@ -2,7 +2,7 @@ import 'package:dartz/dartz.dart';
 import 'package:flutter/material.dart';
 import 'package:get_it/get_it.dart';
 import 'package:green_pal_tracker/graph/data/api/graph_api.dart';
-import 'package:green_pal_tracker/graph/data/api/graph_local_api.dart';
+import 'package:green_pal_tracker/graph/data/db/graph_local_db.dart';
 import 'package:green_pal_tracker/graph/data/models/graph_data.dart';
 import 'package:green_pal_tracker/graph/data/utils/graph_utils.dart';
 import 'package:green_pal_tracker/shared/manager/cache_manager.dart';
