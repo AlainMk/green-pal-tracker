@@ -38,7 +38,7 @@ melos run
 ```
 ### Most important commands
 
-Run the tracker app:
+Run the tracker app (replace `YOUR_API_URL` with your API URL):
 ```bash 
 melos run:tracker -- --dart-define=BASE_URL=`YOUR_API_URL`
 ```
