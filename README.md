@@ -69,6 +69,7 @@ melos test
 3. [Technologies Used](#technologies-used)
 4. [Usage](#usage)
 5. [Folder Structure](#folder-structure)
+6. [Screenshots](#screenshots)
 
 ---
 
@@ -151,3 +152,12 @@ test/
 ├── test_helpers/
 │   ├── mocks.dart                 # Mocktail mocks for testing
 │   ├── test_data.dart             # Test data helpers
+
+## **Screenshots**
+
+![Solar Light](apps/green_pal_tracker/assets/screenshots/solar_light.png)
+![Solar Dark](apps/green_pal_tracker/assets/screenshots/solar_dark.png)
+![House Light](apps/green_pal_tracker/assets/screenshots/house_light.png)
+![House Dark](apps/green_pal_tracker/assets/screenshots/house_dark.png)
+![Battery Light](apps/green_pal_tracker/assets/screenshots/battery_light.png)
+![Battery Dark](apps/green_pal_tracker/assets/screenshots/battery_dark.png)
