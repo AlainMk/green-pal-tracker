@@ -13,6 +13,7 @@ class GraphHeader extends StatelessWidget {
     required this.initialUnit,
     required this.onDateSelected,
     required this.onToggle,
+    this.onInfoTap,
   });
 
   final String title;
@@ -20,6 +21,7 @@ class GraphHeader extends StatelessWidget {
   final int initialUnit;
   final Function(DateTime) onDateSelected;
   final Function(int) onToggle;
+  final VoidCallback? onInfoTap;
 
   @override
   Widget build(BuildContext context) {
@@ -77,7 +79,10 @@ class GraphHeader extends StatelessWidget {
                   style: Theme.of(context).textTheme.titleMedium,
                 ),
               ),
-              const Icon(Icons.info_outline),
+              GestureDetector(
+                onTap: onInfoTap,
+                child: const Icon(Icons.info_outline),
+              ),
             ],
           )
         ],

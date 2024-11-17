@@ -30,7 +30,6 @@ scripts:
     description: Run `flutter pub outdated` in all packages
 
   test:
-    # Only run the test command when the package has a test directory
     run: melos exec --dir-exists=test -- "flutter test"
     description: Run `flutter test` in all packages
 

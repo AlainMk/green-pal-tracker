@@ -15,6 +15,7 @@ class SolarBloc extends PollingBloc<SolarEvent, SolarState> {
   SolarBloc() : super(const LoadingSolarState()) {
     on<GetSolarData>(_getSolarData);
     on<ChangeUnit>(_changeUnit);
+    on<ClearCache>(_clearCache);
     on<StartPolling>((event, emit) => startPolling(() {
           if (state is SuccessSolarState) {
             if (DateUtils.isSameDay((state as SuccessSolarState).date, DateTime.now())) {
@@ -46,6 +47,16 @@ class SolarBloc extends PollingBloc<SolarEvent, SolarState> {
     Emitter<SolarState> emit,
   ) {
     emit((state as SuccessSolarState).copyWith(unit: event.unit == 0 ? EnergyUnit.watt : EnergyUnit.kilowatt));
+  }
+
+  // clear cache
+  void _clearCache(
+    ClearCache event,
+    Emitter<SolarState> emit,
+  ) {
+    emit(const LoadingSolarState());
+    _repository.clearCache();
+    add(const GetSolarData());
   }
 
   final GraphRepository _repository = GetIt.instance.get<GraphRepository>();

@@ -7,6 +7,7 @@ import 'package:green_pal_tracker/graph/ui/widgets/line_chart.dart';
 import 'package:green_pal_tracker/graph/ui/widgets/total_data_card.dart';
 import 'package:green_pal_ui/theme/spacing.dart';
 import 'package:green_pal_ui/theme/utils.dart';
+import 'package:green_pal_ui/widgets/circle_button.dart';
 import 'package:green_pal_ui/widgets/error_screen.dart';
 
 class SolarScreen extends StatelessWidget {
@@ -55,6 +56,19 @@ class SolarScreen extends StatelessWidget {
                     onToggle: (i) {
                       context.read<SolarBloc>().add(ChangeUnit(i));
                     },
+                    onInfoTap: () {
+                      showModalBottomSheet(
+                        context: context,
+                        builder: (_) {
+                          return InfoSettingsMenu(
+                            onCacheClear: () {
+                              context.read<SolarBloc>().add(ClearCache());
+                              showSuccessSnackBar(context, "Cache cleared");
+                            },
+                          );
+                        },
+                      );
+                    },
                   ),
                   const Gap(GreenPalSpacing.largeXl),
                   EnergyLineChart(
@@ -69,6 +83,39 @@ class SolarScreen extends StatelessWidget {
           },
         );
       }),
+    );
+  }
+}
+
+class InfoSettingsMenu extends StatelessWidget {
+  const InfoSettingsMenu({super.key, required this.onCacheClear});
+
+  final Function() onCacheClear;
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      padding: const EdgeInsets.all(GreenPalSpacing.large),
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          const Gap(GreenPalSpacing.large),
+          Text(
+            "Click on the button to clear the cache",
+            style: Theme.of(context).textTheme.titleMedium,
+          ),
+          const Gap(GreenPalSpacing.large),
+          GreenPalCircleButton(
+            onPressed: () {
+              onCacheClear();
+              Navigator.pop(context);
+            },
+            icon: Icons.clear,
+            size: 60,
+          ),
+          const Gap(GreenPalSpacing.medium),
+        ],
+      ),
     );
   }
 }

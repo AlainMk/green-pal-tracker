@@ -22,6 +22,11 @@ class ChangeUnit extends SolarEvent {
   List<Object?> get props => [unit];
 }
 
+class ClearCache extends SolarEvent {
+  @override
+  List<Object?> get props => [];
+}
+
 class StartPolling extends SolarEvent {
   @override
   List<Object?> get props => [];
