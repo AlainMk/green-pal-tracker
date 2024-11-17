@@ -122,10 +122,12 @@ The project follows **Clean Architecture** principles with a modular structure:
 5. **In case of errors, retry by tapping the retry button on the error screen.**
 6. **Navigate to the house screen to view house data.**
 7. **Navigate to the battery screen to view battery data.**
+8. **Click on solar info button and tap to the clear button to clear the local cache.**
 
 ---
 
 ## **Folder Structure**
+```
 lib/
 ├── graph/
 │   ├── data/
@@ -152,12 +154,12 @@ test/
 ├── test_helpers/
 │   ├── mocks.dart                 # Mocktail mocks for testing
 │   ├── test_data.dart             # Test data helpers
+```
 
 ## **Screenshots**
 
-![Solar Light](apps/green_pal_tracker/assets/screenshots/solar_light.png)
-![Solar Dark](apps/green_pal_tracker/assets/screenshots/solar_dark.png)
-![House Light](apps/green_pal_tracker/assets/screenshots/house_light.png)
-![House Dark](apps/green_pal_tracker/assets/screenshots/house_dark.png)
-![Battery Light](apps/green_pal_tracker/assets/screenshots/battery_light.png)
-![Battery Dark](apps/green_pal_tracker/assets/screenshots/battery_dark.png)
+<img src="https://raw.githubusercontent.com/AlainMk/green-pal-tracker/refs/heads/main/apps/green_pal_tracker/assets/screenshots/solar_light.png" width="320" /><img src="https://raw.githubusercontent.com/AlainMk/green-pal-tracker/refs/heads/main/apps/green_pal_tracker/assets/screenshots/solar_dark.png" width="320" />
+<img src="https://raw.githubusercontent.com/AlainMk/green-pal-tracker/refs/heads/main/apps/green_pal_tracker/assets/screenshots/house_light.png" width="320" />
+<img src="https://raw.githubusercontent.com/AlainMk/green-pal-tracker/refs/heads/main/apps/green_pal_tracker/assets/screenshots/house_dark.png" width="320" />
+<img src="https://raw.githubusercontent.com/AlainMk/green-pal-tracker/refs/heads/main/apps/green_pal_tracker/assets/screenshots/battery_light.png" width="320" />
+<img src="https://raw.githubusercontent.com/AlainMk/green-pal-tracker/refs/heads/main/apps/green_pal_tracker/assets/screenshots/battery_dark.png" width="320" />
